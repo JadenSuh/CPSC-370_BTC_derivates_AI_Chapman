@@ -76,5 +76,3 @@
 
 * [Bard](https://bard.google.com)
 * [MIT Lost Skills - Missing Semester of CS](https://missing.csail.mit.edu/ )
-
->>>>>>> ede3edbe8ff732a3aaf3e5580e9e5abfaf3a2116
