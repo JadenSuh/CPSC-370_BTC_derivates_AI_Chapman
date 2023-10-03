@@ -11,13 +11,12 @@ ReactDOM.render(
 );
 =======
 import React from 'react';
-import ReactDOM from 'react-dom';
+import { createRoot } from 'react-dom';
 import App from './App.tsx';
 
-ReactDOM.render(
+createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <App />
-  </React.StrictMode>,
-  document.getElementById('root')
+  </React.StrictMode>
 );
 >>>>>>> 20c4408674487a4b5d7923e4164d7adc1228eba8:workspaces/mySwap/src/index.tsx
