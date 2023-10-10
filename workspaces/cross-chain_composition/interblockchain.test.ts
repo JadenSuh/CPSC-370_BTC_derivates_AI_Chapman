@@ -1,6 +1,7 @@
 import { InterBlockchain } from './interblockchain';
 import { Blockchain1 } from './blockchain1';
 import { Blockchain2 } from './blockchain2';
+import { Maybe } from './maybe';
 
 describe('InterBlockchain', () => {
     it('should demonstrate shared state', () => {
