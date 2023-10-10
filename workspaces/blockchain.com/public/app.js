@@ -1,14 +1,35 @@
 const currencyElement = document.getElementById('currency');
+const loadingElement = document.getElementById('loading');
 currencyElement.addEventListener('change', fetchBitcoinPrice);
+
+function animatePrice(oldPrice, newPrice) {
+  const priceElement = document.getElementById('price');
+  priceElement.textContent = newPrice;
+  if (oldPrice < newPrice) {
+    priceElement.classList.add('increase');
+  } else if (oldPrice > newPrice) {
+    priceElement.classList.add('decrease');
+  }
+  setTimeout(() => {
+    priceElement.classList.remove('increase', 'decrease');
+  }, 1000);
+}
 
 function fetchBitcoinPrice() {
   const currency = currencyElement.value;
+  loadingElement.style.display = 'block';
   fetch(`https://blockchain.info/ticker`)
     .then(response => response.json())
     .then(data => {
-      document.getElementById('price').textContent = `${currency}: ${data[currency].last}`;
+      const oldPrice = parseFloat(document.getElementById('price').textContent.split(' ')[1]);
+      const newPrice = data[currency].last;
+      animatePrice(oldPrice, newPrice);
+      loadingElement.style.display = 'none';
     })
-    .catch(error => console.error('Error:', error));
+    .catch(error => {
+      console.error('Error:', error);
+      loadingElement.style.display = 'none';
+    });
 }
 
 // Fetch the Bitcoin price when the page loads
