@@ -84,11 +84,12 @@ function fetchLatestTransactions() {
     .then(data => {
       const transactionsElement = document.getElementById('transactions');
       transactionsElement.innerHTML = '';
-      data.txs.forEach(tx => {
+      if (data.txs.length > 0) {
+        const tx = data.txs[0];
         const txElement = document.createElement('p');
         txElement.textContent = `Hash: ${tx.hash}, Time: ${new Date(tx.time * 1000).toLocaleString()}, Size: ${tx.size}`;
         transactionsElement.appendChild(txElement);
-      });
+      }
     })
     .catch(error => console.error('Error:', error));
 }
