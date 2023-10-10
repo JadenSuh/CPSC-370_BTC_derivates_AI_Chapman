@@ -1,9 +1,18 @@
-fetch('https://blockchain.info/ticker')
-  .then(response => response.json())
-  .then(data => {
-    document.getElementById('price').textContent = 'USD: ' + data.USD.last;
-  })
-  .catch(error => console.error('Error:', error));
+const currencyElement = document.getElementById('currency');
+currencyElement.addEventListener('change', fetchBitcoinPrice);
+
+function fetchBitcoinPrice() {
+  const currency = currencyElement.value;
+  fetch(`https://blockchain.info/ticker`)
+    .then(response => response.json())
+    .then(data => {
+      document.getElementById('price').textContent = `${currency}: ${data[currency].last}`;
+    })
+    .catch(error => console.error('Error:', error));
+}
+
+// Fetch the Bitcoin price when the page loads
+fetchBitcoinPrice();
 
 function isValidAddress(address) {
   // Bitcoin addresses are 26-35 characters long, consist of alphabetic and numeric characters, 

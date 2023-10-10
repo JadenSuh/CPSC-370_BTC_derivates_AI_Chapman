@@ -20,6 +20,13 @@
   </head>
   <body>
     <h1>Current Bitcoin Price</h1>
+    <select id="currency">
+      <option value="USD">USD</option>
+      <option value="EUR">EUR</option>
+      <option value="GBP">GBP</option>
+      <option value="JPY">JPY</option>
+      <option value="CNY">CNY</option>
+    </select>
     <p id="price"></p>
     <input type="text" id="address" placeholder="Enter address">
     <button onclick="getBalanceSummary()">Get Balance</button>
