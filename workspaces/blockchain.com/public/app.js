@@ -34,13 +34,19 @@ function getBalanceSummary() {
 }
 
 function getLatestBlock() {
+  console.log('getLatestBlock function called');
   fetch('https://blockchain.info/latestblock')
-    .then(response => response.json())
+    .then(response => {
+      console.log('Response received', response);
+      return response.json();
+    })
     .then(data => {
+      console.log('Data received', data);
       document.getElementById('latestBlock').textContent = `Latest Block: ${data.hash}\nTime: ${new Date(data.time * 1000)}\nBlock Index: ${data.block_index}\nHeight: ${data.height}\nTransaction Indexes: ${data.txIndexes.join(', ')}`;
     })
     .catch(error => console.error('Error:', error));
 }
 
 // Call the getLatestBlock function when the page loads
+console.log('Fetching latest block...');
 getLatestBlock();
