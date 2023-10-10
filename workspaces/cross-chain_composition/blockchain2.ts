@@ -1,7 +1,7 @@
 import * as crypto from 'crypto';
 import { Block } from './types';
 
-const Blockchain2 = () => {
+export const Blockchain2 = () => {
     let chain: Block[] = [];
 
     const fs = require('fs');
@@ -12,9 +12,11 @@ const Blockchain2 = () => {
         fs.writeFileSync(logFile, '');
     }
 
-import BlockData from './types';
+interface BlockData {
+    info: string;
+}
 
-    const createBlock = (data: BlockData) => {
+const createBlock = (data: BlockData) => {
         console.log('createBlock called in Blockchain2');
         const previousBlock = chain[chain.length - 1];
         const block: Block = {

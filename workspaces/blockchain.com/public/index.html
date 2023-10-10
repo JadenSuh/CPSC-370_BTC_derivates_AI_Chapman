@@ -20,12 +20,57 @@
   </head>
   <body>
     <h1>Current Bitcoin Price</h1>
+    <div id="loading" style="display: none;">Loading...</div>
+    <select id="currency">
+      <option value="USD">USD</option>
+      <option value="EUR">EUR</option>
+      <option value="GBP">GBP</option>
+      <option value="JPY">JPY</option>
+      <option value="CNY">CNY</option>
+    </select>
     <p id="price"></p>
+    <style>
+      #loading {
+        animation: spin 1s linear infinite;
+      }
+
+      @keyframes spin {
+        0% { transform: rotate(0deg); }
+        100% { transform: rotate(360deg); }
+      }
+
+      #price.increase {
+        animation: increase 1s;
+      }
+
+      #price.decrease {
+        animation: decrease 1s;
+      }
+
+      @keyframes increase {
+        0% { color: black; }
+        50% { color: green; }
+        100% { color: black; }
+      }
+
+      @keyframes decrease {
+        0% { color: black; }
+        50% { color: red; }
+        100% { color: black; }
+      }
+    </style>
     <input type="text" id="address" placeholder="Enter address">
     <button onclick="getBalanceSummary()">Get Balance</button>
     <p id="balance"></p>
-    <h2>Latest Block</h2>
-    <p id="latestBlock"></p>
+    <h2>Latest Transactions</h2>
+    <div id="transactions"></div>
+    <hr>
+    <h2>Transaction Lookup</h2>
+    <input type="text" id="transaction-hash" placeholder="Enter transaction hash">
+    <button onclick="fetchTransaction()">Fetch Transaction</button>
+    <div id="transaction"></div>
+    <h2>QR Code</h2>
+    <canvas id="qrcode"></canvas>
     <script src="app.js"></script>
   </body>
 </html>
