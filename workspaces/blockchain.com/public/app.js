@@ -33,20 +33,17 @@ function getBalanceSummary() {
     .catch(error => console.error('Error:', error));
 }
 
-function getLatestBlock() {
-  console.log('getLatestBlock function called');
-  fetch('https://blockchain.info/latestblock')
-    .then(response => {
-      console.log('Response received', response);
-      return response.json();
-    })
-    .then(data => {
-      console.log('Data received', data);
-      document.getElementById('latestBlock').textContent = `Latest Block: ${data.hash}\nTime: ${new Date(data.time * 1000)}\nBlock Index: ${data.block_index}\nHeight: ${data.height}\nTransaction Indexes: ${data.txIndexes.join(', ')}`;
-    })
-    .catch(error => console.error('Error:', error));
+const QRCode = require('qrcode');
+
+function generateQRCode() {
+  const address = document.getElementById('address').value;
+  const canvas = document.getElementById('qrcode');
+  QRCode.toCanvas(canvas, address, function (error) {
+    if (error) console.error(error);
+    console.log('QR code generated!');
+  });
 }
 
-// Call the getLatestBlock function when the page loads
-console.log('Fetching latest block...');
-getLatestBlock();
+// Call the generateQRCode function when the page loads
+console.log('Generating QR code...');
+generateQRCode();
