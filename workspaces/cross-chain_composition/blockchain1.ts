@@ -1,7 +1,7 @@
 import * as crypto from 'crypto';
 import { Block } from './types';
 
-const Blockchain1 = () => {
+export const Blockchain1 = () => {
     let chain: Block[] = [];
 
     const fs = require('fs');

@@ -5,7 +5,7 @@ interface Blockchain {
     createBlock: (data: Record<string, unknown>) => void;
 }
 
-const InterBlockchain = () => {
+export const InterBlockchain = () => {
     console.log('InterBlockchain function called');
     const sharedState: any = {};
 
