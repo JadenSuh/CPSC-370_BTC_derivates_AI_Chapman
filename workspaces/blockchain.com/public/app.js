@@ -32,8 +32,9 @@ function fetchBitcoinPrice() {
     });
 }
 
-// Fetch the Bitcoin price when the page loads
+// Fetch the Bitcoin price and the latest transactions when the page loads
 fetchBitcoinPrice();
+fetchLatestTransactions();
 
 function isValidAddress(address) {
   // Bitcoin addresses are 26-35 characters long, consist of alphabetic and numeric characters, 
@@ -77,3 +78,17 @@ function generateQRCode() {
 // Call the generateQRCode function when the page loads
 console.log('Generating QR code...');
 generateQRCode();
+function fetchLatestTransactions() {
+  fetch('https://blockchain.info/unconfirmed-transactions?format=json')
+    .then(response => response.json())
+    .then(data => {
+      const transactionsElement = document.getElementById('transactions');
+      transactionsElement.innerHTML = '';
+      data.txs.forEach(tx => {
+        const txElement = document.createElement('p');
+        txElement.textContent = `Hash: ${tx.hash}, Time: ${new Date(tx.time * 1000).toLocaleString()}, Size: ${tx.size}`;
+        transactionsElement.appendChild(txElement);
+      });
+    })
+    .catch(error => console.error('Error:', error));
+}
