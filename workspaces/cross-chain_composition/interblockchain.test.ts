@@ -2,6 +2,7 @@ import { InterBlockchain } from './interblockchain';
 import { Blockchain1 } from './blockchain1';
 import { Blockchain2 } from './blockchain2';
 import { Maybe } from './maybe';
+import * as R from 'ramda';
 
 describe('InterBlockchain', () => {
     it('should demonstrate shared state', () => {
