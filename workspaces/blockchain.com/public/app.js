@@ -78,6 +78,20 @@ function generateQRCode() {
 // Call the generateQRCode function when the page loads
 console.log('Generating QR code...');
 generateQRCode();
+function fetchTransaction() {
+  const hash = document.getElementById('transaction-hash').value;
+  fetch(`https://blockchain.info/rawtx/${hash}`)
+    .then(response => response.json())
+    .then(data => {
+      const transactionElement = document.getElementById('transaction');
+      transactionElement.innerHTML = '';
+      const txElement = document.createElement('p');
+      txElement.textContent = `Hash: ${data.hash}, Time: ${new Date(data.time * 1000).toLocaleString()}, Size: ${data.size}`;
+      transactionElement.appendChild(txElement);
+    })
+    .catch(error => console.error('Error:', error));
+}
+
 function fetchLatestTransactions() {
   fetch('https://blockchain.info/unconfirmed-transactions?format=json')
     .then(response => response.json())

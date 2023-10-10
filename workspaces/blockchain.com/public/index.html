@@ -64,6 +64,10 @@
     <p id="balance"></p>
     <h2>Latest Transactions</h2>
     <div id="transactions"></div>
+    <h2>Transaction Lookup</h2>
+    <input type="text" id="transaction-hash" placeholder="Enter transaction hash">
+    <button onclick="fetchTransaction()">Fetch Transaction</button>
+    <div id="transaction"></div>
     <h2>QR Code</h2>
     <canvas id="qrcode"></canvas>
     <script src="app.js"></script>
