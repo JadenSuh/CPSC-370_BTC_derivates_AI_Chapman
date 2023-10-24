@@ -1,7 +1,7 @@
 # Devenv
 .devenv*
 devenv.local.nix
-
+**/node_modules/
 .DS_Store
 .aider*
 yarn.lock
