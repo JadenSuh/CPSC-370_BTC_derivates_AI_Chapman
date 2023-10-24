@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 #!/usr/bin/env node
 
 "use strict";
@@ -56,7 +55,7 @@ if (!configFileLoaded) {
 	if (!process.env.NODE_ENV) {
 		process.env.NODE_ENV = "production";
 	}
-=======
+
 import React from 'react';
 import { createTRPCClient } from '@trpc/client';
 import { TRPCProvider, useQuery } from '@trpc/react';
@@ -84,7 +83,6 @@ function App() {
       </div>
     </TRPCProvider>
   );
->>>>>>> 2df37ab37eb2c0486d02bb54ecd799f71978ea65
 }
 
 // debug module is already loaded by the time we do dotenv.config
@@ -1256,3 +1254,4 @@ expressApp.locals.assetIntegrity = (filename) => {
 
 
 module.exports = expressApp;
+
