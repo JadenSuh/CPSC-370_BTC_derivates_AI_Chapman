@@ -1,0 +1,22 @@
+{
+  "name": "12oct",
+  "version": "1.0.0",
+  "description": "NodeJS project setup",
+  "main": "App.tsx",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/JadenSuh/CPSC-370_BTC_derivates_AI_Chapman.git"
+  },
+  "keywords": [
+    "NodeJS"
+  ],
+  "author": "Jaden Suh",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/JadenSuh/CPSC-370_BTC_derivates_AI_Chapman/issues"
+  },
+  "homepage": "https://github.com/JadenSuh/CPSC-370_BTC_derivates_AI_Chapman#readme"
+}
