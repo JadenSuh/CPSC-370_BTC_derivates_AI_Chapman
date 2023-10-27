@@ -18,5 +18,6 @@ import App from './App';
 
 test('renders App component', () => {
   render(<App />);
-  // Add your assertions here
+  const linkElement = screen.getByText(/MySwap/i);
+  expect(linkElement).toBeInTheDocument();
 });
