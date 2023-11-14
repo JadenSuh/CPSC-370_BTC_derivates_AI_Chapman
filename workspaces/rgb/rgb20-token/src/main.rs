@@ -2,6 +2,7 @@ use rgbstd::interface::{rgb20, ContractBuilder};
 use rgbstd::contract::ContractId;
 use rgbstd::containers::Contract;
 
+use std::str::FromStr;
 use std::convert::Infallible;
 use std::fs;
 
@@ -74,6 +75,8 @@ fn main() {
         .expect("unable to save contract");
 
     // Import the contract into the RGB system
-    let contract_id = ContractId::from_str(&bindle.to_string()).unwrap();
-    let contract = Contract::from_id(&contract_id).unwrap();
+    let contract_id = rgbstd::contract::ContractId::from_str(&bindle.to_string()).unwrap();
+    // Assuming `from` returns a Result or Option, replace `unwrap` with proper error handling
+    let contract = rgbstd::containers::Contract::from(contract_id)
+        .expect("Failed to create contract from contract_id");
 }
