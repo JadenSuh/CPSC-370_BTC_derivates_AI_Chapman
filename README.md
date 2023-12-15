@@ -57,4 +57,3 @@ The methods and results of this project will be taught in the Fall 2023 course C
 ### Testnet Project Outline:
 
 <div align="center"><img src="./docs/drawings/Chapman_testnet.png"></img></div>
-
