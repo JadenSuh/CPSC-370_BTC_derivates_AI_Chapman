@@ -71,7 +71,7 @@ fn main() {
     fs::write("contracts/rgb20-token.contract.rgba", bindle.to_string())
         .expect("unable to save contract");
 
-    // Import the contract into the RGB system
-    let contract_id = rgb::ContractId::from_str(&bindle.to_string()).unwrap();
-    let contract = rgb::Contract::from_id(&contract_id).unwrap();
+    // // Import the contract into the RGB system
+    // let contract_id = rgb::ContractId::from_str(&bindle.to_string()).unwrap();
+    // let contract = rgb::Contract::from_id(&contract_id).unwrap();
 }
