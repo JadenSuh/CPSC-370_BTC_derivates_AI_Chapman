@@ -12,3 +12,9 @@ test('renders learn react link', () => {
 
   renderAppAndCheckHeader();
 });
+
+test('renders App component', () => {
+  render(<App />);
+  const linkElement = screen.getByText(/MySwap/i);
+  expect(linkElement).toBeInTheDocument();
+});
